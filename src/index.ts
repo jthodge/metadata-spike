@@ -26,6 +26,7 @@ app.post("/generate", (req: any, res: any) => {
   const appRoot = require("app-root-path");
 
   const file = appRoot + `/${entityId}.xml`;
+  res.redirect(file);
   res.sendFile(file);
 });
 
