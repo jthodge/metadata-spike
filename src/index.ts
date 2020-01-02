@@ -1,10 +1,9 @@
 import express from "express";
-// import { idText } from "typescript";
-// import shelljs from "shelljs";
 
 const app = express();
 
 app.use(express.urlencoded());
+app.use(express.static("/"));
 
 app.set("views", "./views");
 app.set("view engine", "pug");
@@ -18,17 +17,16 @@ app.get("/", (req, res) => {
 
 app.post("/generate", (req: any, res: any) => {
   const entityId = req.body.entityId;
-  // const entityIdWithoutDomain = `${entityId}`.replace(".com", "");
 
   const shell = require("shelljs");
   shell.exec(
     `./generate-metadata.sh ${entityId} https://${entityId}/auth/adfs`
   );
 
-  const file = `./${entityId}.xml`;
-  res.download(file);
+  const appRoot = require("app-root-path");
 
-  // res.send(`https://workos.com/${entityIdWithoutDomain}/saml/metadata`);
+  const file = appRoot + `/${entityId}.xml`;
+  res.sendFile(file);
 });
 
 const PORT = process.env.PORT || 8080;
