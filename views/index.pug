@@ -1,0 +1,13 @@
+html
+  head
+    title= title
+    style
+      include ../node_modules/tachyons/css/tachyons.min.css
+  body
+    h2(class='f4 code lh-title flex items-center justify-center pa4')= message
+    form(method='POST' action='/generate' class='f4 code lh-title pa4 black-80')
+          div.form-group(class='mw5 mw7-ns center pa4')
+            label(for='entityId' class="f6 b db mb2") Entity ID: 
+            input#name.form-control(type='text', placeholder='saasapp.com' name='entityId' class="db border-box hover-black w-100 measure ba b--black-20 pa2 br2 mb2")
+            input(type="submit")
+          //- button.btn.btn-primary(type='submit') Generate Metadata
