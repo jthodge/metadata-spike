@@ -25,9 +25,14 @@ app.post("/generate", (req: any, res: any) => {
 
   const appRoot = require("app-root-path");
 
-  const file = appRoot + `/${entityId}.xml`;
-  res.redirect(file);
-  res.sendFile(file);
+  const metadata = appRoot + `/${entityId}.xml`;
+  const cert = appRoot + `/${entityId}.cert`;
+  const key = appRoot + `/${entityId}.key`;
+
+  // res.download(cert);
+  // res.download(key);
+  res.redirect(metadata);
+  // res.sendFile(metadata);
 });
 
 const PORT = process.env.PORT || 8080;
