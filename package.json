@@ -17,7 +17,7 @@
     "app-root-path": "^3.0.0",
     "express": "^4.17.1",
     "minimist": "^1.2.5",
-    "pug": "^2.0.4",
+    "pug": "^3.0.1",
     "shelljs": "^0.8.3",
     "tachyons": "4.10.0",
     "tslint": "^5.20.1",
